@@ -61,15 +61,17 @@ public class VacancyServiceImpl implements IVacancyService {
     @Override
     public VacancyDTO updateVacancy(Long id, VacancyDTO vacancyDTO) {
         Optional<Vacancy> vacancy = vacancyRepository.findById(id);
+
         if (vacancy.isPresent()) {
-            Vacancy vacancy1= vacancy.get();
-            vacancy1.setVacancyName(vacancy1.getVacancyName());
-            vacancy1.setDescription(vacancy1.getDescription());
+            Vacancy vacancy1 = vacancy.get();
+            vacancy1.setVacancyName(vacancyDTO.getVacancyName());
+            vacancy1.setDescription(vacancyDTO.getDescription());
 
             vacancyRepository.save(vacancy1);
+
             VacancyDTO vacancyDTO1 = new VacancyDTO();
-            vacancyDTO1.setVacancyName(vacancyDTO1.getVacancyName());
-            vacancyDTO1.setDescription(vacancyDTO1.getDescription());
+            vacancyDTO1.setVacancyName(vacancy1.getVacancyName());
+            vacancyDTO1.setDescription(vacancy1.getDescription());
             return vacancyDTO1;
         }
 
