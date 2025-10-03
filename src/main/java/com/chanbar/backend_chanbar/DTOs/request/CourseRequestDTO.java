@@ -14,5 +14,5 @@ public class CourseRequestDTO {
     private String coursePrice;
     private String courseDiscount;
     private Boolean isLiked;
-    private String  subCategory;
+    private String subCategory;
 }

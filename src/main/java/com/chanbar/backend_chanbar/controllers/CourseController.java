@@ -34,7 +34,7 @@ public class CourseController {
         return courseService.getCoursesBySubCategory(subCategory);
     }
     @PutMapping("/{id}")
-    CourseResponseDTO updateCourse(@PathVariable(name = "id") Long id, CourseRequestDTO courseRequestDTO){
+    CourseResponseDTO updateCourse(@PathVariable(name = "id") Long id, @RequestBody CourseRequestDTO courseRequestDTO){
         return courseService.updateCourse(id, courseRequestDTO);
     }
     @DeleteMapping("/{id}")
